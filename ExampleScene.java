@@ -61,6 +61,19 @@ public class ExampleScene extends JPanel{
         graphics2d.setPaint(new Color(0, 12, 230));
         graphics2d.fill(poly);
     }
+    
+    private void createTree(Graphics2D graphics2d, double x, double y){
+        Path2D polyTree = new Path2D.Double();
+        polyTree.moveTo(x, y);
+        polyTree.lineTo(x + 30, y);
+        polyTree.lineTo(x + 20, y - 50);
+        polyTree.lineTo(x + 10, y - 50);
+        polyTree.lineTo(x, y);
+
+        graphics2d.setPaint(Color.b);
+        //TODO rgb of brown
+        
+    }
 
     private void applyWindowToViewportTransformation(Graphics2D graphics2d, double left, double right, double top, double bottom, boolean preserveAspect){
         int width = getWidth();
