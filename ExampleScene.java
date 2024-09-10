@@ -35,11 +35,11 @@ public class ExampleScene extends JPanel{
 
         applyWindowToViewportTransformation(graphics2d, 0, 100, 0, 100, true);
         drawScene(graphics2d);
-        //TODO Define this
     }
 
     private void drawScene(Graphics2D graphics2d){
         drawGround(graphics2d);
+        createTrees(graphics2d);
     }
 
     private void drawGround(Graphics2D graphics2d){
@@ -62,6 +62,11 @@ public class ExampleScene extends JPanel{
         graphics2d.fill(poly);
     }
     
+    private void createTrees(Graphics2D graphics2d){
+        createTree(graphics2d, 30, 70);
+        createTree(graphics2d, 70, 70);
+    }
+
     private void createTree(Graphics2D graphics2d, double x, double y){
         Path2D polyTree = new Path2D.Double();
         polyTree.moveTo(x, y);
@@ -72,7 +77,12 @@ public class ExampleScene extends JPanel{
 
         graphics2d.setPaint(Color.b);
         //TODO rgb of brown
-        
+        graphics2d.fill(polyTree);
+
+        //creates the leaves using two quadratic curves, need to troubleshoot curvature
+        Path2D polyLeaves = new Path2D.Double();
+        polyLeaves.moveTo(x - 10, y - 60);
+        polyLeaves.quadTo(x + 15, y - 40, x + 40, y - 60);
     }
 
     private void applyWindowToViewportTransformation(Graphics2D graphics2d, double left, double right, double top, double bottom, boolean preserveAspect){
