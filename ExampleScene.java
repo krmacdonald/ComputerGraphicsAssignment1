@@ -53,14 +53,13 @@ public class ExampleScene extends JPanel{
         
         graphics2d.setPaint(new Color(0, 230, 0));
         graphics2d.fill(ground);
-        
         Path2D poly = new Path2D.Double();
+
         poly.moveTo(10,60);
-        poly.quadTo(50, 95, 90, 60);
+        poly.quadTo(50, 115, 90, 60);
+        poly.closePath();
         graphics2d.setPaint(new Color(0, 12, 230));
         graphics2d.fill(poly);
-        
-        
     }
 
     private void applyWindowToViewportTransformation(Graphics2D graphics2d, double left, double right, double top, double bottom, boolean preserveAspect){
@@ -71,13 +70,11 @@ public class ExampleScene extends JPanel{
             double displayAspect = Math.abs((double)height / width);
             double requestedAspect = Math.abs(( bottom-top ) / ( right-left ));
             if (displayAspect > requestedAspect) {
-                // Expand the viewport vertically.
                 double excess = (bottom-top) * (displayAspect/requestedAspect - 1);
                 bottom += excess/2;
                 top -= excess/2;
             }
             else if (displayAspect < requestedAspect) {
-                // Expand the viewport vertically.
                 double excess = (right-left) * (requestedAspect/displayAspect - 1);
                 right += excess/2;
                 left -= excess/2;
@@ -88,6 +85,5 @@ public class ExampleScene extends JPanel{
         double pixelWidth = Math.abs(( right - left ) / width);
         double pixelHeight = Math.abs(( bottom - top ) / height);
         pixelSize = (float)Math.max(pixelWidth,pixelHeight);
-        
     }
 }
