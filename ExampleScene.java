@@ -1,5 +1,5 @@
 package Assignment;
-import java.awt.*;        // import statements to make necessary classes available
+import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.*;
 
@@ -33,10 +33,61 @@ public class ExampleScene extends JPanel{
         graphics2d.setColor(new Color(66, 245, 239));
         graphics2d.fillRect(0, 0, getWidth(), getHeight());
 
-        applyWindowToViewportTransformation(graphics2d, -2, 6, -2, 6, true);
+        applyWindowToViewportTransformation(graphics2d, 0, 100, 0, 100, true);
         drawScene(graphics2d);
-        //TODO Define these
+        //TODO Define this
     }
 
-    
+    private void drawScene(Graphics2D graphics2d){
+        drawGround(graphics2d);
+    }
+
+    private void drawGround(Graphics2D graphics2d){
+        Path2D ground = new Path2D.Double();
+        ground.moveTo(0, 100);
+        ground.lineTo(100, 100);
+        ground.lineTo(100, 60);
+        ground.lineTo(0, 60);
+        ground.lineTo(0,100);
+        ground.closePath();
+        
+        graphics2d.setPaint(new Color(0, 230, 0));
+        graphics2d.fill(ground);
+        
+        Path2D poly = new Path2D.Double();
+        poly.moveTo(10,60);
+        poly.quadTo(50, 95, 90, 60);
+        graphics2d.setPaint(new Color(0, 12, 230));
+        graphics2d.fill(poly);
+        
+        
+    }
+
+    private void applyWindowToViewportTransformation(Graphics2D graphics2d, double left, double right, double top, double bottom, boolean preserveAspect){
+        int width = getWidth();
+        int height = getHeight();
+
+        if(preserveAspect){
+            double displayAspect = Math.abs((double)height / width);
+            double requestedAspect = Math.abs(( bottom-top ) / ( right-left ));
+            if (displayAspect > requestedAspect) {
+                // Expand the viewport vertically.
+                double excess = (bottom-top) * (displayAspect/requestedAspect - 1);
+                bottom += excess/2;
+                top -= excess/2;
+            }
+            else if (displayAspect < requestedAspect) {
+                // Expand the viewport vertically.
+                double excess = (right-left) * (requestedAspect/displayAspect - 1);
+                right += excess/2;
+                left -= excess/2;
+            }
+        }
+        graphics2d.scale( width / (right-left), height / (bottom-top) );
+        graphics2d.translate( -left, -top );
+        double pixelWidth = Math.abs(( right - left ) / width);
+        double pixelHeight = Math.abs(( bottom - top ) / height);
+        pixelSize = (float)Math.max(pixelWidth,pixelHeight);
+        
+    }
 }
