@@ -32,5 +32,11 @@ public class ExampleScene extends JPanel{
 
         graphics2d.setColor(new Color(66, 245, 239));
         graphics2d.fillRect(0, 0, getWidth(), getHeight());
+
+        applyWindowToViewportTransformation(graphics2d, -2, 6, -2, 6, true);
+        drawScene(graphics2d);
+        //TODO Define these
     }
+
+    
 }
