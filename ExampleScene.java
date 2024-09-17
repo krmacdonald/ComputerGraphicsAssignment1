@@ -43,6 +43,8 @@ public class ExampleScene extends JPanel{
     }
 
     private void drawGround(Graphics2D graphics2d){
+        
+        //Creates a giant rectangle on the ground
         Path2D ground = new Path2D.Double();
         ground.moveTo(0, 100);
         ground.lineTo(100, 100);
@@ -51,42 +53,50 @@ public class ExampleScene extends JPanel{
         ground.lineTo(0,100);
         ground.closePath();
         
+        //Colors the ground
         graphics2d.setPaint(new Color(0, 230, 0));
         graphics2d.fill(ground);
-        Path2D poly = new Path2D.Double();
 
+        //Draws the lake in the center of the ground using a curved line
+        Path2D poly = new Path2D.Double();
         poly.moveTo(10,60);
         poly.quadTo(50, 115, 90, 60);
         poly.closePath();
+
+        //Colors the pond
         graphics2d.setPaint(new Color(0, 12, 230));
         graphics2d.fill(poly);
     }
     
+    //Utilizes the createTree function to draw both of the trees, called in drawScene function
     private void createTrees(Graphics2D graphics2d){
         createTree(graphics2d, 0, 80);
         createTree(graphics2d, 80, 80);
     }
 
+    //Creates a singular tree based on XY points provided
     private void createTree(Graphics2D graphics2d, double x, double y){
+        //Creates path2d obj for tree base
         Path2D polyTree = new Path2D.Double();
+
+        //Creates the trapezoid for the tree's base
         polyTree.moveTo(x, y);
         polyTree.lineTo(x + 20, y);
         polyTree.lineTo(x + 15, y - 40);
         polyTree.lineTo(x + 5, y - 40);
         polyTree.lineTo(x, y);
-
-        graphics2d.setPaint(new Color(128, 89, 0));
-
+        graphics2d.setColor(new Color(133, 93, 0));
         graphics2d.fill(polyTree);
 
-        //creates the leaves using two quadratic curves, need to troubleshoot curvature
-        Path2D polyLeaves = new Path2D.Double();
-        polyLeaves.moveTo(x, y - 40);
-        polyLeaves.quadTo(x + 10, y - 10, x + 20, y - 40);
-        polyLeaves.quadTo(x + 10, y - 70, x, y - 40);
-        graphics2d.setPaint(new Color(9, 160, 1));
+        //Creates leaves
+        graphics2d.setColor(new Color(9, 160, 1));
+        graphics2d.fill(new Ellipse2D.Double(x-5, y-50, 30, 30));
+    }
 
-        graphics2d.fill(polyLeaves);
+    private void createSeesaw(Graphics2D graphics2d){
+        Path2D seesaw = new Path2D.Double();
+        
+        graphics2d.setPaint(new Color(9,150, 6));
     }
 
     private void applyWindowToViewportTransformation(Graphics2D graphics2d, double left, double right, double top, double bottom, boolean preserveAspect){
