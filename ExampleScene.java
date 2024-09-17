@@ -93,12 +93,14 @@ public class ExampleScene extends JPanel{
         graphics2d.fill(new Ellipse2D.Double(x-5, y-50, 30, 30));
     }
 
+    //TODO Create seesaw function, will just be triangle and line for the board
     private void createSeesaw(Graphics2D graphics2d){
         Path2D seesaw = new Path2D.Double();
         
         graphics2d.setPaint(new Color(9,150, 6));
     }
 
+    //Function from Professor Duncan that sets the dimensions for coding purposes
     private void applyWindowToViewportTransformation(Graphics2D graphics2d, double left, double right, double top, double bottom, boolean preserveAspect){
         int width = getWidth();
         int height = getHeight();
