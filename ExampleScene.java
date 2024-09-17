@@ -1,6 +1,5 @@
 package Assignment;
 import java.awt.*;
-import java.awt.event.*;
 import java.awt.geom.*;
 
 import javax.swing.*;
@@ -19,6 +18,7 @@ public class ExampleScene extends JPanel{
         window.setVisible(true);
     }
 
+    @SuppressWarnings("unused")
     private float pixelSize;
 
     public ExampleScene(){
@@ -39,9 +39,10 @@ public class ExampleScene extends JPanel{
 
     private void drawScene(Graphics2D graphics2d){
         drawGround(graphics2d);
+        createSun(graphics2d, 50, 0);
         createTrees(graphics2d);
         createSeesaw(graphics2d);
-        createSun(graphics2d, 50, 0);
+        picnicTowel(graphics2d);
     }
 
     private void drawGround(Graphics2D graphics2d){
@@ -50,8 +51,8 @@ public class ExampleScene extends JPanel{
         Path2D ground = new Path2D.Double();
         ground.moveTo(0, 100);
         ground.lineTo(100, 100);
-        ground.lineTo(100, 60);
-        ground.lineTo(0, 60);
+        ground.lineTo(100, 40);
+        ground.lineTo(0, 40);
         ground.lineTo(0,100);
         ground.closePath();
         
@@ -61,8 +62,8 @@ public class ExampleScene extends JPanel{
 
         //Draws the lake in the center of the ground using a curved line
         Path2D poly = new Path2D.Double();
-        poly.moveTo(10,60);
-        poly.quadTo(50, 115, 90, 60);
+        poly.moveTo(10,40);
+        poly.quadTo(50, 95, 90, 40);
         poly.closePath();
 
         //Colors the pond
@@ -72,8 +73,8 @@ public class ExampleScene extends JPanel{
     
     //Utilizes the createTree function to draw both of the trees, called in drawScene function
     private void createTrees(Graphics2D graphics2d){
-        createTree(graphics2d, 0, 80);
-        createTree(graphics2d, 80, 80);
+        createTree(graphics2d, 0, 60);
+        createTree(graphics2d, 80, 60);
     }
 
     //Creates a singular tree based on XY points provided
@@ -111,6 +112,18 @@ public class ExampleScene extends JPanel{
             graphics2d.setPaint(new Color(255, 230 + i * 5, i * 50, 115 + i * 20));
             graphics2d.fill(new Ellipse2D.Double(x + i * 1.5, y + i * 1.5, 30 - i * 3, 30 - i * 3));
         }
+    }
+
+    private void picnicTowel(Graphics2D graphics2d){
+        Path2D towel = new Path2D.Double();
+        towel.moveTo(60, 90);
+        towel.lineTo(80, 90);
+        towel.lineTo(90, 70);
+        towel.lineTo(70, 70);
+        towel.lineTo(60, 90);
+
+        graphics2d.setColor(new Color(233, 233, 233));
+        graphics2d.fill(towel);
     }
 
     //Function from Professor Duncan that sets the dimensions for coding purposes
