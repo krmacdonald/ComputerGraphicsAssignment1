@@ -43,6 +43,7 @@ public class ExampleScene extends JPanel{
         createTrees(graphics2d);
         createSeesaw(graphics2d);
         picnicTowel(graphics2d);
+        picnicStickman(graphics2d);
     }
 
     private void drawGround(Graphics2D graphics2d){
@@ -124,6 +125,15 @@ public class ExampleScene extends JPanel{
 
         graphics2d.setColor(new Color(233, 233, 233));
         graphics2d.fill(towel);
+    }
+
+    private void picnicStickman(Graphics2D graphics2d){
+        graphics2d.setColor(new Color(0, 0, 0));
+        graphics2d.drawLine(68, 83, 73, 81);
+        graphics2d.drawLine(68, 83, 66, 87);
+        graphics2d.drawLine(73, 81, 75, 76);
+        graphics2d.drawLine(75, 76, 71, 77);
+        graphics2d.draw(new Ellipse2D.Double(73, 71, 4, 4));
     }
 
     //Function from Professor Duncan that sets the dimensions for coding purposes
