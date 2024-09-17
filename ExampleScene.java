@@ -40,6 +40,8 @@ public class ExampleScene extends JPanel{
     private void drawScene(Graphics2D graphics2d){
         drawGround(graphics2d);
         createTrees(graphics2d);
+        createSeesaw(graphics2d);
+        createSun(graphics2d, 60, 10);
     }
 
     private void drawGround(Graphics2D graphics2d){
@@ -96,8 +98,19 @@ public class ExampleScene extends JPanel{
     //TODO Create seesaw function, will just be triangle and line for the board
     private void createSeesaw(Graphics2D graphics2d){
         Path2D seesaw = new Path2D.Double();
-        
+        seesaw.moveTo(10, 90);
+        seesaw.lineTo(30, 85);
+        seesaw.lineTo(31, 84);
+        seesaw.lineTo(11, 91);
         graphics2d.setPaint(new Color(9,150, 6));
+        graphics2d.fill(seesaw);
+    }
+
+    private void createSun(Graphics2D graphics2d, double x, double y){
+        for(int i = 0; i < 5; i ++){
+            graphics2d.setPaint(new Color(255, 230 + i * 5, i * 50));
+            graphics2d.fill(new Ellipse2D.Double(x + i, y, 55 - i * 3, 55 - i * 3));
+        }
     }
 
     //Function from Professor Duncan that sets the dimensions for coding purposes
