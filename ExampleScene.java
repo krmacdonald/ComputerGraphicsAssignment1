@@ -41,7 +41,7 @@ public class ExampleScene extends JPanel{
         drawGround(graphics2d);
         createTrees(graphics2d);
         createSeesaw(graphics2d);
-        createSun(graphics2d, 60, 10);
+        createSun(graphics2d, 50, 0);
     }
 
     private void drawGround(Graphics2D graphics2d){
@@ -108,8 +108,8 @@ public class ExampleScene extends JPanel{
 
     private void createSun(Graphics2D graphics2d, double x, double y){
         for(int i = 0; i < 5; i ++){
-            graphics2d.setPaint(new Color(255, 230 + i * 5, i * 50));
-            graphics2d.fill(new Ellipse2D.Double(x + i, y, 55 - i * 3, 55 - i * 3));
+            graphics2d.setPaint(new Color(255, 230 + i * 5, i * 50, 115 + i * 20));
+            graphics2d.fill(new Ellipse2D.Double(x + i * 1.5, y + i * 1.5, 30 - i * 3, 30 - i * 3));
         }
     }
 
