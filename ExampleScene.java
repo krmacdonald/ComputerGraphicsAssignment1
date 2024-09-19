@@ -165,7 +165,7 @@ public class ExampleScene extends JPanel{
     //Seesaw center at 25, 90 TODO create stickmen
     private void seesawStickmen(Graphics2D graphics2d){
         graphics2d.setColor(new Color(0, 0, 0));
-        graphics2d.drawLine()
+        //graphics2d.drawLine()
     }
 
     //Function from Professor Duncan that sets the dimensions for coding purposes
