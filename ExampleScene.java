@@ -98,52 +98,74 @@ public class ExampleScene extends JPanel{
         graphics2d.fill(new Ellipse2D.Double(x-5, y-50, 30, 30));
     }
 
-    //TODO Create seesaw function, will just be triangle and line for the board
+    //Creates seesaw pivot and board
     private void createSeesaw(Graphics2D graphics2d){
+        
+        //Creates triangle for base
         Path2D seesaw = new Path2D.Double();
         seesaw.moveTo(25, 90);
         seesaw.lineTo(30, 95);
         seesaw.lineTo(20, 95);
         seesaw.lineTo(25, 90);
         
+        //Fills the triangle base
         graphics2d.setPaint(new Color(9,150, 6));
         graphics2d.fill(seesaw);
 
+        //Draws a single line for the bench
         graphics2d.setPaint(new Color(168, 50, 145));
         graphics2d.drawLine(15, 92, 35, 87);
     }
 
+    //Creates bird using arcs TODO figure out how arcs work
     private void createBird(Graphics2D graphics2d, int x, int y){
         graphics2d.drawArc(x, y, 4, 3, 30, 70);
         graphics2d.drawArc(x + 4, y + 4, 4, 3, 30, 70);
     }
 
+    //Creates the sun \o/
     private void createSun(Graphics2D graphics2d, double x, double y){
+        //Loops through to create each "layer" of the sun
         for(int i = 0; i < 5; i ++){
             graphics2d.setPaint(new Color(255, 230 + i * 5, i * 50, 115 + i * 20));
             graphics2d.fill(new Ellipse2D.Double(x + i * 1.5, y + i * 1.5, 30 - i * 3, 30 - i * 3));
         }
     }
 
+    //Draws the area for the blanket
     private void picnicTowel(Graphics2D graphics2d){
         Path2D towel = new Path2D.Double();
+
+        //Shape outline
         towel.moveTo(60, 90);
         towel.lineTo(80, 90);
         towel.lineTo(90, 70);
         towel.lineTo(70, 70);
         towel.lineTo(60, 90);
 
+        //Fills shape
         graphics2d.setColor(new Color(233, 233, 233));
         graphics2d.fill(towel);
     }
 
+    //Creates the stickman on the blanket sleeping
     private void picnicStickman(Graphics2D graphics2d){
         graphics2d.setColor(new Color(0, 0, 0));
+
+        //Body
         graphics2d.drawLine(68, 83, 73, 81);
         graphics2d.drawLine(68, 83, 66, 87);
         graphics2d.drawLine(73, 81, 75, 76);
         graphics2d.drawLine(75, 76, 71, 77);
+
+        //Head
         graphics2d.draw(new Ellipse2D.Double(73, 71, 4, 4));
+    }
+
+    //Seesaw center at 25, 90 TODO create stickmen
+    private void seesawStickmen(Graphics2D graphics2d){
+        graphics2d.setColor(new Color(0, 0, 0));
+        graphics2d.drawLine()
     }
 
     //Function from Professor Duncan that sets the dimensions for coding purposes
