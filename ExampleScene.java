@@ -40,7 +40,7 @@ public class ExampleScene extends JPanel{
     private void drawScene(Graphics2D graphics2d){
         drawGround(graphics2d);
         createSun(graphics2d, 50, 0);
-        createBird(graphics2d);
+        createBird(graphics2d, 30, 20);
         createTrees(graphics2d);
         createSeesaw(graphics2d);
         picnicTowel(graphics2d);
@@ -113,8 +113,9 @@ public class ExampleScene extends JPanel{
         graphics2d.drawLine(15, 92, 35, 87);
     }
 
-    private void createBird(Graphics2D graphics2d){
-        graphics2d.draw(new Arc2D.Double());
+    private void createBird(Graphics2D graphics2d, int x, int y){
+        graphics2d.drawArc(x, y, 4, 3, 30, 70);
+        graphics2d.drawArc(x + 4, y + 4, 4, 3, 30, 70);
     }
 
     private void createSun(Graphics2D graphics2d, double x, double y){
