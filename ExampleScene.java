@@ -171,6 +171,14 @@ public class ExampleScene extends JPanel{
         Rectangle2D basket = new Rectangle2D.Double(x, y, 4, 4);
         graphics2d.draw(basket);
         graphics2d.fill(basket);
+        graphics2d.drawArc((int)x, (int)y-2, 4, 6, 0, 180);
+        
+
+        graphics2d.setColor(new Color(230, 0, 0));
+        
+        Ellipse2D apple = new Ellipse2D.Double(x - 2, y + 6, 2, 2);
+        graphics2d.draw(apple);
+        graphics2d.fill(apple);
     }
 
     //Seesaw center at 25, 90 TODO create stickmen
