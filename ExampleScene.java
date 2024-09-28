@@ -37,6 +37,7 @@ public class ExampleScene extends JPanel{
         drawScene(graphics2d);
     }
 
+    //Uses all the functions that create various parts of the painting and layers them on the canvas
     private void drawScene(Graphics2D graphics2d){
         drawGround(graphics2d);
         createSun(graphics2d, 50, 0);
@@ -44,6 +45,7 @@ public class ExampleScene extends JPanel{
         createTrees(graphics2d);
         createSeesaw(graphics2d);
         picnicTowel(graphics2d);
+        picnicItems(graphics2d, 80, 70);
         picnicStickman(graphics2d);
     }
 
@@ -117,10 +119,11 @@ public class ExampleScene extends JPanel{
         graphics2d.drawLine(15, 92, 35, 87);
     }
 
-    //Creates bird using arcs TODO figure out how arcs work
+    //Creates bird using arcs
     private void createBird(Graphics2D graphics2d, int x, int y){
-        graphics2d.drawArc(x, y, 4, 3, 30, 70);
-        graphics2d.drawArc(x + 4, y + 4, 4, 3, 30, 70);
+        graphics2d.setPaint(new Color(0, 0, 0));
+        graphics2d.drawArc(x, y, 4, 3, 0, 180);
+        graphics2d.drawArc(x + 4, y, 4, 3, 0, 180);
     }
 
     //Creates the sun \o/
@@ -160,6 +163,14 @@ public class ExampleScene extends JPanel{
 
         //Head
         graphics2d.draw(new Ellipse2D.Double(73, 71, 4, 4));
+    }
+
+    private void picnicItems(Graphics2D graphics2d, double x, double y){
+        graphics2d.setColor(new Color(145, 104, 0));
+
+        Rectangle2D basket = new Rectangle2D.Double(x, y, 4, 4);
+        graphics2d.draw(basket);
+        graphics2d.fill(basket);
     }
 
     //Seesaw center at 25, 90 TODO create stickmen
