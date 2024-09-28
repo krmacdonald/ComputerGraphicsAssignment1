@@ -47,6 +47,7 @@ public class ExampleScene extends JPanel{
         picnicTowel(graphics2d);
         picnicItems(graphics2d, 80, 70);
         picnicStickman(graphics2d);
+        seesawStickmen(graphics2d);
     }
 
     private void drawGround(Graphics2D graphics2d){
@@ -168,23 +169,46 @@ public class ExampleScene extends JPanel{
     private void picnicItems(Graphics2D graphics2d, double x, double y){
         graphics2d.setColor(new Color(145, 104, 0));
 
+        //Creates the basket and fills it in
         Rectangle2D basket = new Rectangle2D.Double(x, y, 4, 4);
         graphics2d.draw(basket);
         graphics2d.fill(basket);
         graphics2d.drawArc((int)x, (int)y-2, 4, 6, 0, 180);
         
 
+        //Creates the apple and fills it in
         graphics2d.setColor(new Color(230, 0, 0));
-        
         Ellipse2D apple = new Ellipse2D.Double(x - 2, y + 6, 2, 2);
         graphics2d.draw(apple);
         graphics2d.fill(apple);
     }
 
-    //Seesaw center at 25, 90 TODO create stickmen
+    //Draws the stickmen
     private void seesawStickmen(Graphics2D graphics2d){
+        //Draws the first stickman
         graphics2d.setColor(new Color(0, 0, 0));
-        //graphics2d.drawLine()
+        graphics2d.drawLine(20, 90, 21, 92);
+        graphics2d.drawLine(21, 92, 20, 94);
+        graphics2d.drawLine(20, 90, 20, 86);
+        graphics2d.drawLine(20, 87, 23, 89);
+
+        //creates their head
+        Ellipse2D head1 = new Ellipse2D.Double(19, 83, 3, 3);
+        graphics2d.draw(head1);
+
+        //Creates the second stickman
+        graphics2d.drawLine(34, 86, 32, 90);
+        graphics2d.drawLine(34, 86, 34, 82);
+        graphics2d.drawLine(34, 83, 32, 87);
+
+        //Draws the second head
+        Ellipse2D head2 = new Ellipse2D.Double(32.5, 79, 3, 3);
+        graphics2d.draw(head2);
+        
+        //Fills the two heads in with white
+        graphics2d.setColor(new Color(255 ,255, 255));
+        graphics2d.fill(head1);
+        graphics2d.fill(head2);
     }
 
     //Function from Professor Duncan that sets the dimensions for coding purposes
