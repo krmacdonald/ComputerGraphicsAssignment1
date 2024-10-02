@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<svg width="600" height="500" style="background-color:lime">
+
+	<symbol id="Person">
+      <line x1="80" y1="460" x2="80" y2="380" style="stroke:black;stroke-width:3" />
+      <circle cx="80" cy="380" r="15" stroke="black" stroke-width="2" fill="white" />
+      <line x1="80" y1="410" x2="100" y2="455" style="stroke:black;stroke-width:2" />
+      <line x1="80" y1="460" x2="100" y2="475" style="stroke:black;stroke-width:2" />
+      <line x1="80" y1="490" x2="100" y2="475" style="stroke:black;stroke-width:2" />
+    </symbol>
+	
+   <!--Water-->
+   <circle cx="300" cy="70" r="290" stroke="blue" stroke-width="4" fill="blue" />
+   
+   <!--Sky-->
+   <rect width="600" height="250" x="0" y="0" fill="aqua" />
+   
+   <!--Sun-->
+   <circle cx="350" cy="0" r="50" stroke="yellow" stroke-width="4" fill="yellow" />
+   <circle cx="350" cy="0" r="60" stroke="yellow" stroke-width="0" fill="yellow" fill-opacity="0.5"/>
+   <circle cx="350" cy="0" r="70" stroke="yellow" stroke-width="0" fill="yellow" fill-opacity="0.4"/>
+   <circle cx="350" cy="0" r="80" stroke="yellow" stroke-width="0" fill="yellow" fill-opacity="0.3"/>
+   
+   <!--Trees-->
+   <polygon points="40,220 40,400 35,410 15,430 60,410 90,440 90,410 130,430 110,410 100,400 100,220" fill="saddlebrown" />
+   <circle cx="70" cy="220" r="75" stroke="darkgreen" stroke-width="4" fill="darkgreen" />
+   
+   <polygon points="40,220 40,400 35,410 15,430 60,410 90,440 90,410 130,430 110,410 100,400 100,220" fill="saddlebrown" 
+   transform="translate(460 0)"/>
+   <circle cx="530" cy="220" r="75" stroke="darkgreen" stroke-width="4" fill="darkgreen"/>
+   
+   <!--Seesaw-->
+   <polygon points="160,420 120,480 200,480" fill="darkgreen" />
+   <rect width="200" height="10" x="0" y="0" fill="mediumorchid" 
+   transform="matrix(.866 -.5 .5 .866 65 470)"/>
+   <use href="#Person" x="15" y="-10"/>
+   <use href="#Person" x="0" y="35" transform="translate(300 -115) scale(-1,1)"/>
+   
+   
+   <!--Picnic-->
+   <polygon points="320,450 420,450 500,350 400,350" fill="burlywood" />
+   <circle cx="400" cy="370" r="3" stroke="red" stroke-width="1" fill="red" />   
+   <rect width="30" height="20" x="450" y="340" fill="saddlebrown" />
+   <polyline points="455,340 460,333 465,330 470,333 475,340 "
+  style="fill:none;stroke:red;stroke-width:2" />
+  
+  <line x1="440" y1="380" x2="410" y2="420" style="stroke:black;stroke-width:2" />
+  <circle cx="440" cy="380" r="15" stroke="black" stroke-width="2" fill="white" />
+  <line x1="395" y1="415" x2="410" y2="420" style="stroke:black;stroke-width:2" />
+  <line x1="395" y1="415" x2="390" y2="430" style="stroke:black;stroke-width:2" />
+  <line x1="400" y1="400" x2="425" y2="400" style="stroke:black;stroke-width:2" />
+  
+  <polyline points="300,200 307.5,195 315,200 322.5,195 330,200 "
+  style="fill:none;stroke:black;stroke-width:2" />
+   
+   
+</svg> 
+ 
+</body>
+</html>
